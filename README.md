@@ -2,6 +2,10 @@
 
 A robust computer vision system for detecting and localizing individual Hindi (Devanagari) words from handwritten document images using adaptive morphological processing.
 
+## Workflow Diagram
+
+![Project Workflow Diagram](outputs/evaluation/project_workflow_diagram.png)
+
 ## Features
 
 - Word-level detection of Hindi handwritten text with ~96.7% F1-Score
