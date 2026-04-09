@@ -4,11 +4,14 @@ __pycache__/
 *$py.class
 *.so
 .Python
-env/
-venv/
 *.egg-info/
 dist/
 build/
+
+# Virtual Environment
+.venv/
+venv/
+env/
 
 # IDE
 .vscode/
@@ -17,26 +20,43 @@ build/
 *.swo
 *~
 
-# Output files (large image and JSON files)
-outputs/batch_results/*.jpg
-outputs/batch_results/*.json
-outputs/demo_results/*.jpg
-outputs/demo_results/*.json
-
-# Keep the CSV result file but ignore temp files
-outputs/*.txt
-outputs/*.log
-
-# EasyOCR models (downloaded automatically)
+# EasyOCR / PaddleOCR models (large files)
 .EasyOCR/
 *.pth
-
-# Jupyter Notebook
-.ipynb_checkpoints
+*.pdparams
 
 # OS
 .DS_Store
 Thumbs.db
 
-# Large dataset (optional - uncomment if you don't want to upload dataset)
-# DataSet/
+# Old / Unnecessary scripts
+unnecessary/
+batch_final.py
+batch_gemini_vision_ocr.py
+gemini_vision_ocr.py
+final.py
+run_final_on_ocr_dataset.py
+run_easyocr.py
+run_paddleocr.py
+run_tesseract.py
+generate_comparison_csv.py
+
+# Old DataSet folder (capital D - from previous commit)
+DataSet/
+
+# Large datasets (too big for GitHub)
+OCR_dataset/
+outputs/final_improved_OCR_dataset/
+
+# Unnecessary output folders
+outputs/batch_gemini_vision_ocr_dataSet/
+outputs/easyocr_top10/
+outputs/paddleocr_top10/
+outputs/tesseract_top10/
+outputs/final_improved/
+outputs/intermediate_steps/
+outputs/*.txt
+outputs/*.log
+
+# Jupyter
+.ipynb_checkpoints

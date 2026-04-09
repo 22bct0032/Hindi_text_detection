@@ -1,0 +1,742 @@
+{
+  "source_image": "dataSet\\70.jpeg",
+  "angle": 0,
+  "total_boxes": 105,
+  "detections": [
+    {
+      "box_id": 1,
+      "x": 213,
+      "y": 76,
+      "width": 175,
+      "height": 49
+    },
+    {
+      "box_id": 2,
+      "x": 506,
+      "y": 66,
+      "width": 94,
+      "height": 42
+    },
+    {
+      "box_id": 3,
+      "x": 625,
+      "y": 43,
+      "width": 35,
+      "height": 59
+    },
+    {
+      "box_id": 4,
+      "x": 45,
+      "y": 212,
+      "width": 157,
+      "height": 49
+    },
+    {
+      "box_id": 5,
+      "x": 239,
+      "y": 197,
+      "width": 92,
+      "height": 38
+    },
+    {
+      "box_id": 6,
+      "x": 357,
+      "y": 190,
+      "width": 59,
+      "height": 41
+    },
+    {
+      "box_id": 7,
+      "x": 438,
+      "y": 178,
+      "width": 114,
+      "height": 47
+    },
+    {
+      "box_id": 8,
+      "x": 580,
+      "y": 178,
+      "width": 86,
+      "height": 45
+    },
+    {
+      "box_id": 9,
+      "x": 703,
+      "y": 164,
+      "width": 129,
+      "height": 46
+    },
+    {
+      "box_id": 10,
+      "x": 857,
+      "y": 156,
+      "width": 34,
+      "height": 52
+    },
+    {
+      "box_id": 11,
+      "x": 959,
+      "y": 161,
+      "width": 97,
+      "height": 51
+    },
+    {
+      "box_id": 12,
+      "x": 1072,
+      "y": 174,
+      "width": 115,
+      "height": 37
+    },
+    {
+      "box_id": 13,
+      "x": 69,
+      "y": 302,
+      "width": 129,
+      "height": 45
+    },
+    {
+      "box_id": 14,
+      "x": 238,
+      "y": 294,
+      "width": 112,
+      "height": 32
+    },
+    {
+      "box_id": 15,
+      "x": 377,
+      "y": 272,
+      "width": 41,
+      "height": 56
+    },
+    {
+      "box_id": 16,
+      "x": 467,
+      "y": 276,
+      "width": 54,
+      "height": 43
+    },
+    {
+      "box_id": 17,
+      "x": 549,
+      "y": 279,
+      "width": 65,
+      "height": 37
+    },
+    {
+      "box_id": 18,
+      "x": 642,
+      "y": 275,
+      "width": 64,
+      "height": 39
+    },
+    {
+      "box_id": 19,
+      "x": 734,
+      "y": 256,
+      "width": 82,
+      "height": 47
+    },
+    {
+      "box_id": 20,
+      "x": 841,
+      "y": 270,
+      "width": 119,
+      "height": 34
+    },
+    {
+      "box_id": 21,
+      "x": 988,
+      "y": 258,
+      "width": 95,
+      "height": 48
+    },
+    {
+      "box_id": 22,
+      "x": 1102,
+      "y": 264,
+      "width": 89,
+      "height": 46
+    },
+    {
+      "box_id": 23,
+      "x": 372,
+      "y": 351,
+      "width": 119,
+      "height": 46
+    },
+    {
+      "box_id": 24,
+      "x": 518,
+      "y": 347,
+      "width": 26,
+      "height": 46
+    },
+    {
+      "box_id": 25,
+      "x": 615,
+      "y": 348,
+      "width": 127,
+      "height": 49
+    },
+    {
+      "box_id": 26,
+      "x": 768,
+      "y": 352,
+      "width": 131,
+      "height": 32
+    },
+    {
+      "box_id": 27,
+      "x": 911,
+      "y": 337,
+      "width": 149,
+      "height": 42
+    },
+    {
+      "box_id": 28,
+      "x": 1081,
+      "y": 350,
+      "width": 135,
+      "height": 32
+    },
+    {
+      "box_id": 29,
+      "x": 81,
+      "y": 380,
+      "width": 51,
+      "height": 41
+    },
+    {
+      "box_id": 30,
+      "x": 163,
+      "y": 377,
+      "width": 103,
+      "height": 32
+    },
+    {
+      "box_id": 31,
+      "x": 286,
+      "y": 373,
+      "width": 64,
+      "height": 29
+    },
+    {
+      "box_id": 32,
+      "x": 474,
+      "y": 430,
+      "width": 104,
+      "height": 42
+    },
+    {
+      "box_id": 33,
+      "x": 602,
+      "y": 434,
+      "width": 134,
+      "height": 30
+    },
+    {
+      "box_id": 34,
+      "x": 750,
+      "y": 420,
+      "width": 44,
+      "height": 37
+    },
+    {
+      "box_id": 35,
+      "x": 816,
+      "y": 419,
+      "width": 83,
+      "height": 39
+    },
+    {
+      "box_id": 36,
+      "x": 922,
+      "y": 426,
+      "width": 164,
+      "height": 27
+    },
+    {
+      "box_id": 37,
+      "x": 1101,
+      "y": 412,
+      "width": 50,
+      "height": 48
+    },
+    {
+      "box_id": 38,
+      "x": 113,
+      "y": 516,
+      "width": 67,
+      "height": 48
+    },
+    {
+      "box_id": 39,
+      "x": 280,
+      "y": 517,
+      "width": 60,
+      "height": 36
+    },
+    {
+      "box_id": 40,
+      "x": 464,
+      "y": 504,
+      "width": 107,
+      "height": 37
+    },
+    {
+      "box_id": 41,
+      "x": 571,
+      "y": 504,
+      "width": 117,
+      "height": 37
+    },
+    {
+      "box_id": 42,
+      "x": 709,
+      "y": 487,
+      "width": 117,
+      "height": 44
+    },
+    {
+      "box_id": 43,
+      "x": 844,
+      "y": 480,
+      "width": 56,
+      "height": 37
+    },
+    {
+      "box_id": 44,
+      "x": 913,
+      "y": 494,
+      "width": 105,
+      "height": 27
+    },
+    {
+      "box_id": 45,
+      "x": 1024,
+      "y": 481,
+      "width": 50,
+      "height": 39
+    },
+    {
+      "box_id": 46,
+      "x": 128,
+      "y": 586,
+      "width": 127,
+      "height": 39
+    },
+    {
+      "box_id": 47,
+      "x": 283,
+      "y": 571,
+      "width": 111,
+      "height": 40
+    },
+    {
+      "box_id": 48,
+      "x": 415,
+      "y": 572,
+      "width": 13,
+      "height": 39
+    },
+    {
+      "box_id": 49,
+      "x": 457,
+      "y": 560,
+      "width": 159,
+      "height": 38
+    },
+    {
+      "box_id": 50,
+      "x": 635,
+      "y": 559,
+      "width": 134,
+      "height": 30
+    },
+    {
+      "box_id": 51,
+      "x": 795,
+      "y": 556,
+      "width": 48,
+      "height": 27
+    },
+    {
+      "box_id": 52,
+      "x": 868,
+      "y": 554,
+      "width": 89,
+      "height": 27
+    },
+    {
+      "box_id": 53,
+      "x": 971,
+      "y": 554,
+      "width": 107,
+      "height": 28
+    },
+    {
+      "box_id": 54,
+      "x": 1082,
+      "y": 549,
+      "width": 56,
+      "height": 32
+    },
+    {
+      "box_id": 55,
+      "x": 149,
+      "y": 653,
+      "width": 105,
+      "height": 33
+    },
+    {
+      "box_id": 56,
+      "x": 275,
+      "y": 643,
+      "width": 52,
+      "height": 33
+    },
+    {
+      "box_id": 57,
+      "x": 350,
+      "y": 637,
+      "width": 102,
+      "height": 31
+    },
+    {
+      "box_id": 58,
+      "x": 471,
+      "y": 627,
+      "width": 35,
+      "height": 38
+    },
+    {
+      "box_id": 59,
+      "x": 556,
+      "y": 619,
+      "width": 84,
+      "height": 36
+    },
+    {
+      "box_id": 60,
+      "x": 662,
+      "y": 616,
+      "width": 80,
+      "height": 36
+    },
+    {
+      "box_id": 61,
+      "x": 772,
+      "y": 624,
+      "width": 99,
+      "height": 30
+    },
+    {
+      "box_id": 62,
+      "x": 895,
+      "y": 611,
+      "width": 56,
+      "height": 43
+    },
+    {
+      "box_id": 63,
+      "x": 973,
+      "y": 623,
+      "width": 59,
+      "height": 24
+    },
+    {
+      "box_id": 64,
+      "x": 1048,
+      "y": 620,
+      "width": 69,
+      "height": 29
+    },
+    {
+      "box_id": 65,
+      "x": 0,
+      "y": 673,
+      "width": 16,
+      "height": 49
+    },
+    {
+      "box_id": 66,
+      "x": 40,
+      "y": 720,
+      "width": 17,
+      "height": 39
+    },
+    {
+      "box_id": 67,
+      "x": 164,
+      "y": 709,
+      "width": 86,
+      "height": 31
+    },
+    {
+      "box_id": 68,
+      "x": 181,
+      "y": 765,
+      "width": 53,
+      "height": 52
+    },
+    {
+      "box_id": 69,
+      "x": 251,
+      "y": 754,
+      "width": 75,
+      "height": 33
+    },
+    {
+      "box_id": 70,
+      "x": 273,
+      "y": 692,
+      "width": 33,
+      "height": 39
+    },
+    {
+      "box_id": 71,
+      "x": 352,
+      "y": 761,
+      "width": 52,
+      "height": 24
+    },
+    {
+      "box_id": 72,
+      "x": 358,
+      "y": 697,
+      "width": 98,
+      "height": 31
+    },
+    {
+      "box_id": 73,
+      "x": 447,
+      "y": 753,
+      "width": 100,
+      "height": 28
+    },
+    {
+      "box_id": 74,
+      "x": 470,
+      "y": 685,
+      "width": 108,
+      "height": 36
+    },
+    {
+      "box_id": 75,
+      "x": 561,
+      "y": 737,
+      "width": 32,
+      "height": 42
+    },
+    {
+      "box_id": 76,
+      "x": 586,
+      "y": 687,
+      "width": 39,
+      "height": 33
+    },
+    {
+      "box_id": 77,
+      "x": 644,
+      "y": 677,
+      "width": 86,
+      "height": 34
+    },
+    {
+      "box_id": 78,
+      "x": 655,
+      "y": 732,
+      "width": 117,
+      "height": 39
+    },
+    {
+      "box_id": 79,
+      "x": 756,
+      "y": 676,
+      "width": 129,
+      "height": 33
+    },
+    {
+      "box_id": 80,
+      "x": 801,
+      "y": 730,
+      "width": 58,
+      "height": 37
+    },
+    {
+      "box_id": 81,
+      "x": 876,
+      "y": 731,
+      "width": 85,
+      "height": 30
+    },
+    {
+      "box_id": 82,
+      "x": 905,
+      "y": 671,
+      "width": 70,
+      "height": 33
+    },
+    {
+      "box_id": 83,
+      "x": 978,
+      "y": 736,
+      "width": 130,
+      "height": 23
+    },
+    {
+      "box_id": 84,
+      "x": 992,
+      "y": 679,
+      "width": 96,
+      "height": 21
+    },
+    {
+      "box_id": 85,
+      "x": 1142,
+      "y": 674,
+      "width": 26,
+      "height": 27
+    },
+    {
+      "box_id": 86,
+      "x": 183,
+      "y": 816,
+      "width": 59,
+      "height": 24
+    },
+    {
+      "box_id": 87,
+      "x": 261,
+      "y": 802,
+      "width": 100,
+      "height": 37
+    },
+    {
+      "box_id": 88,
+      "x": 386,
+      "y": 808,
+      "width": 90,
+      "height": 23
+    },
+    {
+      "box_id": 89,
+      "x": 493,
+      "y": 805,
+      "width": 97,
+      "height": 22
+    },
+    {
+      "box_id": 90,
+      "x": 615,
+      "y": 794,
+      "width": 99,
+      "height": 29
+    },
+    {
+      "box_id": 91,
+      "x": 330,
+      "y": 852,
+      "width": 154,
+      "height": 34
+    },
+    {
+      "box_id": 92,
+      "x": 513,
+      "y": 849,
+      "width": 54,
+      "height": 33
+    },
+    {
+      "box_id": 93,
+      "x": 584,
+      "y": 848,
+      "width": 162,
+      "height": 32
+    },
+    {
+      "box_id": 94,
+      "x": 789,
+      "y": 844,
+      "width": 61,
+      "height": 35
+    },
+    {
+      "box_id": 95,
+      "x": 864,
+      "y": 854,
+      "width": 94,
+      "height": 21
+    },
+    {
+      "box_id": 96,
+      "x": 980,
+      "y": 846,
+      "width": 89,
+      "height": 31
+    },
+    {
+      "box_id": 97,
+      "x": 202,
+      "y": 866,
+      "width": 107,
+      "height": 30
+    },
+    {
+      "box_id": 98,
+      "x": 216,
+      "y": 903,
+      "width": 48,
+      "height": 43
+    },
+    {
+      "box_id": 99,
+      "x": 322,
+      "y": 914,
+      "width": 114,
+      "height": 22
+    },
+    {
+      "box_id": 100,
+      "x": 475,
+      "y": 912,
+      "width": 143,
+      "height": 21
+    },
+    {
+      "box_id": 101,
+      "x": 648,
+      "y": 906,
+      "width": 96,
+      "height": 25
+    },
+    {
+      "box_id": 102,
+      "x": 776,
+      "y": 902,
+      "width": 45,
+      "height": 29
+    },
+    {
+      "box_id": 103,
+      "x": 853,
+      "y": 904,
+      "width": 111,
+      "height": 30
+    },
+    {
+      "box_id": 104,
+      "x": 224,
+      "y": 968,
+      "width": 94,
+      "height": 26
+    },
+    {
+      "box_id": 105,
+      "x": 334,
+      "y": 958,
+      "width": 35,
+      "height": 39
+    }
+  ]
+}

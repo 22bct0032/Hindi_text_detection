@@ -1,0 +1,9 @@
+Model,Precision(%),Recall(%),F1-Score(%),RMSE,MAE,TP,FP,FN
+Our Algorithm,96.97,96.4,96.69,10.16,8.14,12819,400,479
+EasyOCR,100.0,57.46,72.98,55.18,52.38,7641,0,5657
+PaddleOCR,100.0,28.67,44.57,90.6,87.82,3813,0,9485
+Tesseract,99.93,79.45,88.52,31.17,25.37,10565,7,2733
+
+Image Quality Metrics
+PSNR (dB),9.52
+DRD,0.173

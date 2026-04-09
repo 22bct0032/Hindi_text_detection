@@ -19,12 +19,15 @@ os.makedirs(PROCESSED_DATA_PATH, exist_ok=True)
 # EasyOCR Configuration
 LANGUAGES = ['hi', 'en']  # Hindi and English
 GPU_ENABLED = True  # Set to False if no GPU available
-DETECTION_THRESHOLD = 0.4  # Confidence threshold for text detection
-TEXT_THRESHOLD = 0.5  # Threshold for text recognition
+DETECTION_THRESHOLD = 0.4
+TEXT_THRESHOLD = 0.5
 
-# Word-level Detection Parameters
-MIN_WORD_WIDTH = 15  # Minimum width of detected word box in pixels
-MIN_WORD_HEIGHT = 15  # Minimum height of detected word box in pixels
+# Gemini API Configuration
+GEMINI_API_KEY = os.getenv('GEMINI_API_KEY', 'AIzaSyBi9MR8aFxssjnF0OL8A2yi9Al9b66QN0s')
+
+# Word-level Filtering
+MIN_WORD_WIDTH = 15
+MIN_WORD_HEIGHT = 15
 MAX_WORD_WIDTH = 500  # Maximum width to filter out false detections
 MAX_WORD_HEIGHT = 200  # Maximum height to filter out false detections
 
@@ -39,17 +42,6 @@ RESIZE_HEIGHT = None  # Set to None to keep original size, or specify height
 APPLY_DENOISING = True  # Apply denoising to improve detection
 DENOISE_STRENGTH = 10  # Denoising strength (1-20)
 
-# Dataset Split Ratios
-TRAIN_RATIO = 0.7
-VAL_RATIO = 0.15
-TEST_RATIO = 0.15
-
-# Training Parameters (for fine-tuning if needed)
-BATCH_SIZE = 4
-LEARNING_RATE = 0.001
-NUM_EPOCHS = 50
-EARLY_STOPPING_PATIENCE = 10
-
 # Logging
-VERBOSE = True  # Print detailed logs
+VERBOSE = False  # Print detailed logs
 SAVE_INTERMEDIATE_RESULTS = True  # Save intermediate processing steps

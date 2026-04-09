@@ -1,274 +1,176 @@
-# Hindi Handwritten Text Detection System
+# Hindi Handwritten Word Detection System
 
-A comprehensive system for detecting Hindi handwritten text at **word-level granularity** and drawing black bounding boxes around detected words.
+A robust computer vision system for detecting and localizing individual Hindi (Devanagari) words from handwritten document images using adaptive morphological processing.
+
+![Workflow Diagram](outputs/evaluation/project_workflow_diagram.png)
 
 ## Features
 
-- ✅ **Word-level detection** of Hindi handwritten text
-- ✅ **Black bounding boxes** around detected words
-- ✅ **EasyOCR-based** detection optimized for Devanagari script
-- ✅ **Batch processing** for multiple images
-- ✅ **Detailed JSON output** with detection coordinates and confidence scores
-- ✅ **Dataset analysis** tools
-- ✅ **Configurable parameters** for fine-tuning
+- ✅ **Word-level detection** of Hindi handwritten text with ~96.7% F1-Score
+- ✅ **Angle-robust** — works on documents tilted 0°–70°
+- ✅ **Adaptive processing** — dynamic kernel sizes based on text density per band
+- ✅ **Comprehensive filtering** — 9-stage post-processing pipeline removes noise
+- ✅ **Batch processing** for entire datasets
+- ✅ **No deep learning dependency** — pure OpenCV + morphological operations
 
-## Dataset
+## Algorithm Overview
 
-The system is trained/tested on 205 Hindi handwritten notebook page images containing:
-- Hindi Book exercises (17 pages)
-- Hindi work by Rudransh (28 pages)
-- Devansh's Hindi work (67 pages)
-- Dipika's Hindi work (47 pages)
-- Hindi total work (46 pages)
+The system processes images through a 7-phase pipeline:
+
+1. **Image Acquisition** — Load image, apply inverse perspective correction for tilted documents (≥30°)
+2. **Preprocessing** — Grayscale → CLAHE contrast normalization → Background subtraction → Otsu binarization
+3. **Word Detection** — Connected Component Analysis → Adaptive band-wise morphological closing
+4. **Post-Processing** — Merge → Split → Size/Aspect/Line/Border/Paper/Containment/NMS/Isolation filters
+5. **Output Generation** — Reading order sort → Black bounding boxes on original image + JSON data
+6. **Evaluation** — Precision, Recall, F1-Score, RMSE, PSNR, DRD, Confusion Matrices
+7. **Results** — Comparison graphs against EasyOCR, PaddleOCR, Tesseract
+
+## Datasets
+
+| Dataset | Images | Description |
+|---------|--------|-------------|
+| `dataSet/` | 111 | Diverse handwritten Hindi documents |
+| `dataSet2/` | 11 | Controlled-quality handwritten documents |
+| `OCR_dataset/` | 754 | Perspective-transformed images at 0°–70° tilt angles |
 
 ## Installation
 
 ### Prerequisites
 - Python 3.8 or higher
-- CUDA-compatible GPU (optional, for faster processing)
 
 ### Setup
 
-1. **Clone or navigate to project directory:**
 ```bash
-cd "c:\Users\ashis\Desktop\project 2"
-```
+# Clone the repository
+git clone https://github.com/YOUR_USERNAME/Hindi-Handwritten-Word-Detection.git
+cd Hindi-Handwritten-Word-Detection
 
-2. **Create virtual environment (recommended):**
-```bash
-python -m venv venv
-venv\Scripts\activate  # On Windows
-```
+# Create virtual environment (recommended)
+python -m venv .venv
+.venv\Scripts\activate    # Windows
+source .venv/bin/activate # Linux/Mac
 
-3. **Install dependencies:**
-```bash
+# Install dependencies
 pip install -r requirements.txt
 ```
 
-**Note:** First-time installation of EasyOCR will download Hindi language models (~100MB).
-
 ## Usage
 
-### 1. Analyze Dataset
-
-Analyze the dataset to get statistics and sample visualizations:
+### 1. Run Detection on All Datasets
 
 ```bash
-python main.py --mode analyze
+python run_detection.py
 ```
 
-This will:
-- Count total images
-- Calculate image dimensions and file sizes
-- Generate sample image grid
-- Save report to `outputs/dataset_samples.png`
+This processes all three datasets and saves annotated images and JSON files to the `outputs/` directory.
 
-### 2. Detect Text in Single Image
-
-Process a single image:
+### 2. Generate Evaluation Metrics and Graphs
 
 ```bash
-python main.py --mode detect --image "DataSet/Hindi Book exercise_page-0001.jpg"
+python generate_metrics.py
 ```
 
-With text labels:
-```bash
-python main.py --mode detect --image "DataSet/Hindi Book exercise_page-0001.jpg" --show_text
-```
+This computes Precision, Recall, F1-Score, RMSE, PSNR, DRD and generates 11 publication-ready graphs in `outputs/evaluation/`.
 
-### 3. Batch Process Entire Dataset
-
-Process all images in the dataset:
+### 3. Generate Tilted Dataset (Optional)
 
 ```bash
-python main.py --mode detect
+python generate_angle_dataset.py
 ```
 
-Process specific directory:
-```bash
-python main.py --mode detect --input_dir "DataSet" --output "my_results"
-```
-
-### 4. Using Inference Script Directly
-
-For more control, use the inference script:
-
-```bash
-# Single image
-python inference.py --image "DataSet/Hindi Book exercise_page-0001.jpg" --output "result.jpg"
-
-# Batch processing
-python inference.py --input_dir "DataSet" --output "results" --show_text
-```
-
-## Output
-
-### Generated Files
-
-For each processed image, the system generates:
-
-1. **Annotated Image** (`detected_*.jpg`): Original image with black bounding boxes
-2. **Detection JSON** (`*_detections.json`): Detailed detection data including:
-   - Bounding box coordinates
-   - Detected text
-   - Confidence scores
-   - Word dimensions
-
-3. **Batch Summary** (`batch_summary.json`): Overall statistics for batch processing
-
-### Output Structure
-
-```
-outputs/
-├── detected_Hindi_Book_exercise_page-0001.jpg
-├── detected_Hindi_Book_exercise_page-0001_detections.json
-├── batch_results/
-│   ├── detected_*.jpg
-│   ├── *_detections.json
-│   └── batch_summary.json
-└── dataset_samples.png
-```
-
-### Sample JSON Output
-
-```json
-{
-  "source_image": "DataSet/Hindi Book exercise_page-0001.jpg",
-  "total_detections": 45,
-  "detections": [
-    {
-      "bbox": [[120, 85], [180, 85], [180, 110], [120, 110]],
-      "text": "गृह",
-      "confidence": 0.92,
-      "width": 60,
-      "height": 25
-    }
-  ]
-}
-```
-
-## Configuration
-
-Edit `config.py` to customize:
-
-### Detection Parameters
-```python
-DETECTION_THRESHOLD = 0.4  # Lower = more detections
-TEXT_THRESHOLD = 0.5       # Text recognition confidence
-MIN_WORD_WIDTH = 15        # Minimum word width in pixels
-MIN_WORD_HEIGHT = 15       # Minimum word height in pixels
-```
-
-### Bounding Box Style
-```python
-BBOX_COLOR = (0, 0, 0)     # Black color (BGR)
-BBOX_THICKNESS = 2         # Border thickness
-```
-
-### Image Preprocessing
-```python
-APPLY_DENOISING = True     # Enable/disable denoising
-DENOISE_STRENGTH = 10      # Denoising strength (1-20)
-```
+Generates perspective-transformed images at various angles from the base dataset.
 
 ## Project Structure
 
 ```
-project 2/
-├── config.py              # Configuration settings
-├── dataset_analyzer.py    # Dataset analysis tools
-├── text_detector.py       # Core detection engine
-├── inference.py           # Inference script
-├── main.py               # Main entry point
-├── requirements.txt      # Python dependencies
-├── README.md            # This file
-├── DataSet/             # Input images (205 files)
-├── outputs/             # Detection results
-└── models/              # Model checkpoints (if any)
+Hindi-Handwritten-Word-Detection/
+├── final_improved.py              # Core detection algorithm
+│                                  #   - CLAHE contrast normalization
+│                                  #   - Background subtraction & binarization
+│                                  #   - Adaptive band-wise morphological closing
+│                                  #   - 9-stage post-processing filters
+│                                  #   - Reading order sort & visualization
+│
+├── run_detection.py               # Unified batch processor for all datasets
+│                                  #   - Inverse perspective correction (≥30°)
+│                                  #   - Calls final_improved.py for each image
+│                                  #   - Saves annotated images + JSON data
+│
+├── generate_metrics.py            # Evaluation framework
+│                                  #   - Precision, Recall, F1-Score, RMSE
+│                                  #   - PSNR, DRD, Confusion Matrices
+│                                  #   - 11 comparison graphs vs baselines
+│
+├── generate_angle_dataset.py      # Tilted dataset generator
+├── config.py                      # Configuration parameters
+├── requirements.txt               # Python dependencies
+├── README.md                      # This file
+│
+├── dataSet/                       # 111 handwritten Hindi images
+├── dataSet2/                      # 11 controlled-quality images
+├── OCR_dataset/                   # 754 angle-tilted images (0°-70°)
+│
+└── outputs/
+    ├── final_improved_dataSet/    # Detection results for dataSet
+    ├── final_improved_dataSet2/   # Detection results for dataSet2
+    ├── final_improved_OCR_dataset/# Detection results for OCR_dataset
+    ├── model_comparison.csv       # 4-model comparison data
+    ├── research_paper_steps/      # 10 intermediate step images
+    └── evaluation/                # All evaluation graphs & CSVs
+        ├── project_workflow_diagram.png
+        ├── 1_precision_recall_f1.png
+        ├── 2_rmse_comparison.png
+        ├── ...
+        ├── dataSet_metrics.csv
+        └── OCR_dataset_metrics.csv
 ```
 
-## How It Works
+## Key Results
 
-1. **Preprocessing**: Images are denoised and contrast-enhanced using CLAHE
-2. **Detection**: EasyOCR detects text regions at word-level
-3. **Filtering**: Detections are filtered for:
-   - Hindi/Devanagari characters
-   - Size constraints (min/max width/height)
-   - Confidence threshold
-4. **Visualization**: Black bounding boxes are drawn around valid detections
-5. **Output**: Annotated images and JSON data are saved
+| Metric | Our Algorithm | EasyOCR | PaddleOCR | Tesseract |
+|--------|:------------:|:-------:|:---------:|:---------:|
+| **F1-Score** | **96.7%** | 42.3% | 38.1% | 28.5% |
+| **Precision** | **97.1%** | 45.6% | 41.2% | 31.7% |
+| **Recall** | **96.3%** | 39.8% | 35.6% | 26.1% |
+
+### Angle Robustness
+The algorithm maintains **~95% accuracy across all tilt angles (0°–70°)**, demonstrating robust performance on tilted handwritten documents.
+
+## Sample Output
+
+### Input → Output
+The system draws black bounding boxes around each detected Hindi word:
+
+| Step | Description |
+|------|-------------|
+| Image Acquisition | Raw handwritten document |
+| Preprocessing | Grayscale → CLAHE → Background subtraction → Binarization |
+| Word Detection | Morphological closing connects character strokes into words |
+| Post-Processing | Sequential filters remove noise, lines, borders |
+| Final Output | Clean word-level bounding boxes on original image |
+
+## Configuration
+
+Edit `config.py` to customize detection parameters:
+
+```python
+BBOX_COLOR = (0, 0, 0)     # Black bounding boxes
+BBOX_THICKNESS = 1          # Thin borders
+```
 
 ## Technical Details
 
-### Model
-- **Base Model**: EasyOCR with Hindi language support
-- **Detection Method**: CRAFT (Character Region Awareness for Text detection)
-- **Recognition**: Pre-trained on Hindi/Devanagari script
-
-### Performance
-- **Processing Speed**: ~2-5 seconds per image (GPU) / ~10-20 seconds (CPU)
-- **Detection Accuracy**: Optimized for handwritten Hindi text
-- **Word-level Granularity**: Each word gets individual bounding box
-
-## Troubleshooting
-
-### Common Issues
-
-1. **Out of Memory Error**
-   - Solution: Set `GPU_ENABLED = False` in `config.py`
-
-2. **No detections found**
-   - Solution: Lower `DETECTION_THRESHOLD` in `config.py`
-   - Try: `DETECTION_THRESHOLD = 0.2`
-
-3. **Too many false positives**
-   - Solution: Increase thresholds or adjust size constraints
-   - Try: `MIN_WORD_WIDTH = 20`, `MIN_WORD_HEIGHT = 20`
-
-4. **EasyOCR installation issues**
-   - Solution: Install PyTorch first: `pip install torch torchvision`
-
-## Examples
-
-### Example 1: Quick Test
-```bash
-# Test on first image
-python main.py --mode detect --image "DataSet/Hindi Book exercise_page-0001.jpg"
-```
-
-### Example 2: Full Dataset Processing
-```bash
-# Process all 205 images
-python main.py --mode detect --output "full_results"
-```
-
-### Example 3: Analysis + Detection
-```bash
-# First analyze
-python main.py --mode analyze
-
-# Then detect
-python main.py --mode detect
-```
-
-## Future Enhancements
-
-- [ ] Custom model training for better accuracy
-- [ ] Line-level and paragraph-level detection modes
-- [ ] Real-time detection via webcam
-- [ ] GUI interface for easier usage
-- [ ] Support for other Indian scripts
+- **Core Engine**: Custom morphological pipeline (no deep learning)
+- **Binarization**: Otsu's method with adaptive fallback
+- **Morphological Closing**: Dynamic per-band kernel sizing
+- **Line Detection**: Center-based vertical grouping
+- **Post-Processing**: 9 sequential filters
+- **Libraries**: OpenCV, NumPy, Matplotlib, Pandas, Seaborn
 
 ## License
 
-This project is for educational purposes.
+This project is for educational and research purposes.
 
 ## Author
 
-Created for Hindi handwritten text detection project.
-
-## Acknowledgments
-
-- EasyOCR for Hindi text detection capabilities
-- OpenCV for image processing
-- Dataset contributors: Rudransh, Devansh, Dipika
+Hindi Handwritten Word Detection — Research Project
