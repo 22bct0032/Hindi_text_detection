@@ -30,6 +30,10 @@ The system processes images through a multi-stage pipeline:
 | Folder | Images | Description |
 |--------|--------|-------------|
 | `dataSet/` | 111 | Diverse handwritten Hindi document images |
+| `dataSet2/` | 11 | Controlled-quality handwritten documents |
+| `OCR_dataset/` | 754 | Perspective-transformed images at 0°–70° tilt angles |
+
+> **📥 Download Full Dataset:** [Google Drive Link](https://drive.google.com/drive/folders/1YN3Q1MuXVLAI8s3FCfYS7Wp0GUEHMKED?usp=sharing)
 
 ## Installation
 
